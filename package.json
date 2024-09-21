@@ -1,0 +1,12 @@
+{
+  "name": "hackerrankapi",
+  "version": "0.0.1",
+  "description": "Node.js Api to get badge info from hackerRank",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Scott Imandt",
+  "license": "ISC"
+}
