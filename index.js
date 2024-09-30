@@ -28,6 +28,11 @@ app.get('/', (req, res)=>{
     res.render('index', {title: "Python"});
 })
 
+app.get('/public/python.svg', (req, res)=>{
+    res.setHeader('content-type','image/svg+xml')
+    res.send('./public/python.svg')
+})
+
 app.use((req,res) =>{
     res.status(404).send("Incorrect URL")
 })
