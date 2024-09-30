@@ -1,5 +1,6 @@
 import 'dotenv/config';
 import express from 'express'
+import cors from 'cors'
 
 
 const port = process.env.PORT || 4000;
@@ -10,7 +11,16 @@ app.set('view engine', 'ejs');
 
 app.listen(port);
 
+
+var corsOptions = {
+    origin: 'http://localhost:4000',
+    optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
+  }
+
+
 //Middle Ware
+app.use(cors(corsOptions))
+
 app.use("/public", express.static('public'));
 
 app.get('/', (req, res)=>{
