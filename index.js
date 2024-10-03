@@ -23,14 +23,15 @@ app.use(cors(corsOptions))
 
 app.use("/public", express.static('public'));
 
-app.get('/', (req, res)=>{
-    res.setHeader('content-type','image/svg+xml')
-    res.render('index', {title: "Python"});
-})
 
 app.get('/public/python.svg', (req, res)=>{
     res.setHeader('content-type','image/svg+xml')
     res.send('./public/python.svg')
+})
+
+app.get('/', (req, res)=>{
+    res.setHeader('content-type','image/svg+xml')
+    res.render('index', {title: "Python"});
 })
 
 app.use((req,res) =>{
