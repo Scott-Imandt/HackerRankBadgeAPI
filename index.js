@@ -27,7 +27,7 @@ app.use("/public", express.static('public'));
 
 app.get('/public/python.svg', (req, res) => {
     res.setHeader('content-type', 'image/svg+xml')
-    res.send('./public/python.svg')
+    res.sendFile(path.join(__dirname, 'public', 'python.svg'))
 })
 
 app.get('/', async (req, res) => {
@@ -49,6 +49,10 @@ app.get('/', async (req, res) => {
             console.log(svgData)
             if (svgData == null) {
                 res.render('index', { title: "Error", badgeGradient: null, starCount: 0, badgeLink: null });
+            }
+
+            if(svgData.badgeTitle == "Python"){
+                svgData.badgehref = "https://www.hackerrankapi.scottimandt.com/public/python.svg"
             }
             res.render('index', { title: svgData.badgeTitle, badgeGradient: svgData.badgeGradient, starCount: svgData.badgeStarCount, badgeLink: svgData.badgehref });
 
