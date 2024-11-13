@@ -37,12 +37,12 @@ app.use("/public", express.static('public'));
 
 
 app.get('/public/python.svg', (req, res) => {
-    res.setHeader('content-type', 'image/svg+xml')
+    res.set('Content-Type', 'image/svg+xml');
     res.sendFile(path.join(__dirname, 'public', 'python.svg'))
 })
 
 app.get('/', async (req, res) => {
-    res.setHeader('content-type', 'image/svg+xml')
+    res.set('Content-Type', 'image/svg+xml');
     //console.log(scrape("Python"))
 
     console.log(req.query)
