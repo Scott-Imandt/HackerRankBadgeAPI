@@ -15,8 +15,9 @@ app.listen(port);
 
 var corsOptions = {
     origin: '*',
-    methods: 'GET,POST,PUT,DELETE,OPTIONS',
-    allowedHeaders: 'Content-Type,Authorization',
+    methods: '*',
+    allowedHeaders: '*',
+    credentials: true,
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
 }
 
