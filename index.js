@@ -13,17 +13,25 @@ app.set('view engine', 'ejs');
 app.listen(port);
 
 
-var corsOptions = {
+const corsOptions = {
     origin: '*',
-    methods: '*',
-    allowedHeaders: '*',
+    methods: 'GET,POST,PUT,DELETE,OPTIONS',
+    allowedHeaders: 'Content-Type,Authorization',
     credentials: true,
     optionsSuccessStatus: 200 // some legacy browsers (IE11, various SmartTVs) choke on 204
-}
+};
 
 
 //Middle Ware
 app.use(cors(corsOptions))
+
+app.use((req, res, next) => {
+    res.header('Access-Control-Allow-Origin', '*');
+    res.header('Access-Control-Allow-Methods', '*');
+    res.header('Access-Control-Allow-Headers', '*');
+    res.header('Access-Control-Allow-Credentials', 'true');
+    next();
+});
 
 app.use("/public", express.static('public'));
 
